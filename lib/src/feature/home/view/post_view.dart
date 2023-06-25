@@ -15,7 +15,9 @@ class PostView extends StatefulWidget {
 class _PostViewState extends State<PostView> {
   @override
   void initState() {
-    Provider.of<PostViewModel>(context, listen: false).getFeed();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<PostViewModel>(context, listen: false).getFeed();
+    });
     super.initState();
   }
 

@@ -21,7 +21,9 @@ class _NewPostViewState extends State<NewPostView> {
 
   @override
   void initState() {
-    Provider.of<NewPostViewModel>(context, listen: false).disposeImage();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<NewPostViewModel>(context, listen: false).disposeImage();
+    });
     super.initState();
   }
 
